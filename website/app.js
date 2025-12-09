@@ -121,19 +121,29 @@ app.controller('ContactController', function ($scope) {
 app.controller('AboutController', function ($scope) {
   $scope.team = [
     {
-      name: 'Sarah Chen',
-      position: 'Chief Executive Officer',
-      bio: 'With over 20 years of experience in technology leadership, Sarah drives our vision for innovation and growth.',
+      name: 'Sri Sagari Bhaskar',
+      position: 'Chairman',
+      bio: 'Leading InfoTech Synergy with a vision for innovation and excellence in enterprise technology solutions.',
     },
     {
-      name: 'Michael Rodriguez',
+      name: 'Kaushal Bhaskar',
       position: 'Chief Technology Officer',
-      bio: 'A pioneer in AI and cloud computing, Michael leads our technical strategy and innovation initiatives.',
+      bio: 'Driving our technical strategy and innovation initiatives with expertise in emerging technologies.',
     },
     {
-      name: 'Dr. Emily Thompson',
-      position: 'Head of AI Research',
-      bio: 'Leading our AI research team, Emily focuses on developing cutting-edge machine learning solutions.',
+      name: 'Mydhili Priya',
+      position: 'Product Owner',
+      bio: 'Leading product development and strategy, ensuring our solutions meet enterprise needs and market demands.',
+    },
+    {
+      name: 'Ramisetti Srikanth',
+      position: 'Principal Engineer',
+      bio: 'Architecting robust and scalable solutions while leading our engineering excellence initiatives.',
+    },
+    {
+      name: 'Anjali Naga Sai',
+      position: 'Frontend Developer Principal',
+      bio: 'Leading our frontend development team, creating intuitive and responsive user experiences.',
     },
   ];
 });
