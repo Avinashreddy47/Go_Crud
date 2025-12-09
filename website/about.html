@@ -1,0 +1,85 @@
+<div class="about-page">
+  <header class="page-header">
+    <div class="container">
+      <h1>About InfoTech Synergy</h1>
+      <p>Leading the future of technology innovation</p>
+    </div>
+  </header>
+
+  <section class="company-info container">
+    <div class="info-grid">
+      <div class="info-card fade-in">
+        <h2>Our Mission</h2>
+        <p>{{company.mission}}</p>
+      </div>
+      <div class="info-card fade-in">
+        <h2>Our Vision</h2>
+        <p>{{company.vision}}</p>
+      </div>
+    </div>
+
+    <div class="values-section">
+      <h2>Our Values</h2>
+      <div class="values-grid">
+        <div class="value-card fade-in" ng-repeat="value in company.values">
+          <i
+            class="fas"
+            ng-class="{
+                        'fa-lightbulb': value === 'Innovation',
+                        'fa-star': value === 'Excellence',
+                        'fa-shield-alt': value === 'Integrity',
+                        'fa-users': value === 'Customer Focus'
+                    }"
+          ></i>
+          <h3>{{value}}</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team-section">
+    <div class="container">
+      <h2 class="section-title">Our Leadership Team</h2>
+      <div class="team-grid">
+        <div class="team-member fade-in" ng-repeat="member in team">
+          <div class="member-icon">
+            <i
+              class="fas"
+              ng-class="{
+                            'fa-user-tie': member.role === 'Chairman',
+                            'fa-user-cog': member.role === 'Product Owner',
+                            'fa-code': member.role === 'Frontend Engineer',
+                            'fa-drafting-compass': member.role === 'Architect'
+                        }"
+            ></i>
+          </div>
+          <div class="member-info">
+            <h3>{{member.name}}</h3>
+            <h4>{{member.role}}</h4>
+            <p>{{member.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-section">
+    <div class="container">
+      <h2 class="section-title">Company Statistics</h2>
+      <div class="stats-grid">
+        <div class="stat-card fade-in" ng-repeat="stat in stats">
+          <div class="stat-number">{{stat.number}}</div>
+          <div class="stat-label">{{stat.label}}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Work with Us?</h2>
+      <p>Let's discuss how we can help transform your business with our innovative solutions.</p>
+      <a href="#/contact" class="cta-button">Contact Us</a>
+    </div>
+  </section>
+</div>
