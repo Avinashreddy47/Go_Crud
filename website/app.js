@@ -6,10 +6,6 @@ app.config(function ($routeProvider) {
       templateUrl: 'home.html',
       controller: 'HomeController',
     })
-    .when('/solutions', {
-      templateUrl: 'solutions.html',
-      controller: 'SolutionsController',
-    })
     .when('/projects', {
       templateUrl: 'projects.html',
       controller: 'ProjectsController',
@@ -22,13 +18,13 @@ app.config(function ($routeProvider) {
       templateUrl: 'goals.html',
       controller: 'GoalsController',
     })
+    .when('/leadership', {
+      templateUrl: 'leadership.html',
+      controller: 'LeadershipController',
+    })
     .when('/contact', {
       templateUrl: 'contact.html',
       controller: 'ContactController',
-    })
-    .when('/about', {
-      templateUrl: 'about.html',
-      controller: 'AboutController',
     })
     .otherwise({
       redirectTo: '/',
@@ -36,31 +32,39 @@ app.config(function ($routeProvider) {
 });
 
 app.controller('HomeController', function ($scope) {
-  $scope.message = 'Welcome to InfoTech Synergy - Transforming Businesses Through Technology';
+  $scope.message = 'Innovative Enterprise Solutions from a Fast-Growing Technology Partner';
   $scope.description =
-    'InfoTech Synergy is a leading provider of enterprise-grade technology solutions. We specialize in digital transformation, cloud computing, and AI-driven innovation to help businesses thrive in the digital age.';
-});
-
-app.controller('SolutionsController', function ($scope) {
-  // Solutions page data is handled through static HTML
+    "InfoTech Synergy is a dynamic young company delivering cutting-edge enterprise solutions. With over $500K in revenue and 3+ satisfied enterprise clients, we're proving that agile, innovative approaches deliver better results.";
 });
 
 app.controller('ProjectsController', function ($scope) {
   $scope.projects = [
     {
-      title: 'AI-Powered Analytics Platform',
+      title: 'E-Commerce Digital Transformation',
       description:
-        'A comprehensive platform that uses machine learning to provide deep insights into business data, enabling data-driven decision-making.',
+        "Revolutionized a growing retail client's online presence with a modern e-commerce platform. Our agile approach and innovative solutions led to significant improvements in performance and sales.",
+      metrics: {
+        improvement: 40,
+        timeframe: '8 weeks',
+      },
     },
     {
-      title: 'IoT Integration Solutions',
+      title: 'Healthcare Analytics Platform',
       description:
-        'Seamless integration of Internet of Things devices with existing systems, enhancing automation and efficiency in various industries.',
+        'Developed a custom analytics solution for a regional healthcare provider, enabling data-driven decision making and improving patient care efficiency.',
+      metrics: {
+        improvement: 35,
+        timeframe: '12 weeks',
+      },
     },
     {
-      title: 'Blockchain-Based Secure Transactions',
+      title: 'Cloud Infrastructure Optimization',
       description:
-        'Developing secure, transparent transaction systems using blockchain technology for financial and supply chain applications.',
+        'Implemented a cost-effective cloud solution for a fintech startup, resulting in improved system reliability and significant cost savings.',
+      metrics: {
+        improvement: 30,
+        timeframe: '6 weeks',
+      },
     },
   ];
 });
@@ -68,19 +72,19 @@ app.controller('ProjectsController', function ($scope) {
 app.controller('MissionsController', function ($scope) {
   $scope.missions = [
     {
-      title: 'Innovation Through Technology',
+      title: 'Agile Innovation',
       description:
-        'We drive innovation by leveraging cutting-edge technologies to create solutions that transform businesses and industries.',
+        'As a young company, we bring fresh perspectives and rapid innovation to enterprise solutions, delivering results faster than traditional providers.',
     },
     {
-      title: 'Enterprise Excellence',
+      title: 'Client-Focused Growth',
       description:
-        'Our commitment to excellence ensures that every solution we deliver meets the highest standards of quality and reliability.',
+        'We maintain a focused client portfolio to ensure personalized attention and exceptional service delivery for each project.',
     },
     {
-      title: 'Global Impact',
+      title: 'Technology Leadership',
       description:
-        'We aim to make a lasting impact on businesses worldwide through our innovative technology solutions and services.',
+        "Despite our early stage, we're already pushing boundaries in AI and cloud solutions, backed by our proven track record of successful implementations.",
     },
   ];
 });
@@ -88,78 +92,82 @@ app.controller('MissionsController', function ($scope) {
 app.controller('GoalsController', function ($scope) {
   $scope.goals = [
     {
-      title: 'Expand AI Capabilities',
+      title: 'Expand Client Success Stories',
       description:
-        'To become a leader in AI solutions by investing in research and development of advanced machine learning models and natural language processing systems.',
+        'Build on our initial success with enterprise clients by delivering more transformative solutions that demonstrate our capabilities.',
     },
     {
-      title: 'Global Expansion',
+      title: 'Innovation Leadership',
       description:
-        'Expand our services globally, establishing partnerships in key markets to deliver innovative solutions worldwide.',
+        'Continue pushing technological boundaries while maintaining our perfect track record of successful project deliveries.',
     },
     {
-      title: 'Sustainable Technology',
+      title: 'Strategic Growth',
       description:
-        'Develop technologies that promote sustainability, using AI to optimize resource usage and reduce environmental impact.',
+        'Scale our operations thoughtfully to serve more clients while maintaining our high standards of personalized service and innovation.',
     },
     {
-      title: 'Talent Development',
+      title: 'Market Expansion',
       description:
-        'Build a world-class team of experts in emerging technologies, fostering a culture of continuous learning and innovation.',
+        'Leverage our early success and $500K+ revenue milestone to expand our presence in key enterprise markets.',
+    },
+  ];
+});
+
+app.controller('LeadershipController', function ($scope) {
+  $scope.leaders = [
+    {
+      name: 'Sri Bhaskar',
+      title: 'Chairman',
+      description:
+        'As the Chairman, Sri Bhaskar provides strategic direction and leadership to InfoTech Synergy, guiding our growth and innovation initiatives.',
+    },
+    {
+      name: 'Kaushal Bhaskar',
+      title: 'Chief Technology Officer',
+      description:
+        'Leading our technology vision and strategy, Kaushal ensures we stay at the forefront of innovation and emerging technologies.',
+    },
+    {
+      name: 'Ramissetti Srikanth',
+      title: 'Principal Engineer',
+      description:
+        'Srikanth leads our technical implementations and architecture decisions, ensuring robust and scalable solutions for our clients.',
+    },
+    {
+      name: 'Mydhili Priya',
+      title: 'Product Owner',
+      description:
+        'Mydhili drives our product strategy and ensures our solutions align perfectly with client needs and market demands.',
+    },
+    {
+      name: 'Anjali Naga Sai',
+      title: 'Frontend Engineer',
+      description:
+        'Anjali crafts engaging user experiences and ensures our solutions are both beautiful and functional.',
     },
   ];
 });
 
 app.controller('ContactController', function ($scope) {
-  $scope.submitForm = function () {
-    // Form submission logic would go here
-    // For now, just log the form data
-    console.log('Form submitted');
+  $scope.formData = {
+    name: '',
+    email: '',
+    company: '',
+    message: '',
   };
-});
 
-app.controller('AboutController', function ($scope) {
-  $scope.team = [
-    {
-      name: 'Sri Sagari Bhaskar',
-      position: 'Chairman',
-      bio: 'Leading InfoTech Synergy with a vision for innovation and excellence in enterprise technology solutions.',
-    },
-    {
-      name: 'Kaushal Bhaskar',
-      position: 'Chief Technology Officer',
-      bio: 'Driving our technical strategy and innovation initiatives with expertise in emerging technologies.',
-    },
-    {
-      name: 'Mydhili Priya',
-      position: 'Product Owner',
-      bio: 'Leading product development and strategy, ensuring our solutions meet enterprise needs and market demands.',
-    },
-    {
-      name: 'Ramisetti Srikanth',
-      position: 'Principal Engineer',
-      bio: 'Architecting robust and scalable solutions while leading our engineering excellence initiatives.',
-    },
-    {
-      name: 'Anjali Naga Sai',
-      position: 'Frontend Developer Principal',
-      bio: 'Leading our frontend development team, creating intuitive and responsive user experiences.',
-    },
-  ];
-});
+  $scope.submitForm = function () {
+    // In a real application, this would send the data to a server
+    console.log('Form submitted:', $scope.formData);
+    alert('Thank you for your message. We will get back to you soon!');
 
-// Add animations
-app.animation('.fade-in', function () {
-  return {
-    enter: function (element, done) {
-      element.css('opacity', 0);
-      jQuery(element).animate(
-        {
-          opacity: 1,
-        },
-        1000,
-        done,
-      );
-    },
+    // Reset form
+    $scope.formData = {
+      name: '',
+      email: '',
+      company: '',
+      message: '',
+    };
   };
 });
