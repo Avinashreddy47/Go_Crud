@@ -6,6 +6,10 @@ app.config(function ($routeProvider) {
       templateUrl: 'home.html',
       controller: 'HomeController',
     })
+    .when('/solutions', {
+      templateUrl: 'solutions.html',
+      controller: 'SolutionsController',
+    })
     .when('/projects', {
       templateUrl: 'projects.html',
       controller: 'ProjectsController',
@@ -18,6 +22,14 @@ app.config(function ($routeProvider) {
       templateUrl: 'goals.html',
       controller: 'GoalsController',
     })
+    .when('/contact', {
+      templateUrl: 'contact.html',
+      controller: 'ContactController',
+    })
+    .when('/about', {
+      templateUrl: 'about.html',
+      controller: 'AboutController',
+    })
     .otherwise({
       redirectTo: '/',
     });
@@ -29,27 +41,26 @@ app.controller('HomeController', function ($scope) {
     'InfoTech Synergy is a leading provider of enterprise-grade technology solutions. We specialize in digital transformation, cloud computing, and AI-driven innovation to help businesses thrive in the digital age.';
 });
 
+app.controller('SolutionsController', function ($scope) {
+  // Solutions page data is handled through static HTML
+});
+
 app.controller('ProjectsController', function ($scope) {
   $scope.projects = [
     {
-      title: 'Enterprise Cloud Migration',
+      title: 'AI-Powered Analytics Platform',
       description:
-        'Successfully migrated Fortune 500 company infrastructure to cloud, resulting in 40% cost reduction and improved scalability.',
+        'A comprehensive platform that uses machine learning to provide deep insights into business data, enabling data-driven decision-making.',
     },
     {
-      title: 'AI-Powered Customer Analytics',
+      title: 'IoT Integration Solutions',
       description:
-        'Implemented advanced analytics platform for retail chain, increasing customer retention by 25% and sales by 30%.',
+        'Seamless integration of Internet of Things devices with existing systems, enhancing automation and efficiency in various industries.',
     },
     {
-      title: 'Digital Banking Transformation',
+      title: 'Blockchain-Based Secure Transactions',
       description:
-        'Modernized banking infrastructure for regional bank, enabling digital services and reducing transaction time by 60%.',
-    },
-    {
-      title: 'Supply Chain Optimization',
-      description:
-        'Developed ML-based supply chain optimization system, reducing inventory costs by 35% and improving delivery times.',
+        'Developing secure, transparent transaction systems using blockchain technology for financial and supply chain applications.',
     },
   ];
 });
@@ -57,24 +68,19 @@ app.controller('ProjectsController', function ($scope) {
 app.controller('MissionsController', function ($scope) {
   $scope.missions = [
     {
-      title: 'Digital Excellence',
+      title: 'Innovation Through Technology',
       description:
-        'Delivering cutting-edge digital solutions that drive business growth and operational efficiency.',
+        'We drive innovation by leveraging cutting-edge technologies to create solutions that transform businesses and industries.',
     },
     {
-      title: 'Innovation Leadership',
+      title: 'Enterprise Excellence',
       description:
-        'Pioneering advanced technology solutions in AI, cloud computing, and digital transformation.',
+        'Our commitment to excellence ensures that every solution we deliver meets the highest standards of quality and reliability.',
     },
     {
-      title: 'Client Success',
+      title: 'Global Impact',
       description:
-        'Ensuring measurable business outcomes through strategic technology implementation and support.',
-    },
-    {
-      title: 'Industry Expertise',
-      description:
-        'Providing specialized solutions for banking, healthcare, retail, and manufacturing sectors.',
+        'We aim to make a lasting impact on businesses worldwide through our innovative technology solutions and services.',
     },
   ];
 });
@@ -82,49 +88,68 @@ app.controller('MissionsController', function ($scope) {
 app.controller('GoalsController', function ($scope) {
   $scope.goals = [
     {
-      title: 'Technology Leadership',
+      title: 'Expand AI Capabilities',
       description:
-        'To be the leading provider of enterprise technology solutions, recognized for innovation and excellence.',
+        'To become a leader in AI solutions by investing in research and development of advanced machine learning models and natural language processing systems.',
     },
     {
-      title: 'Digital Transformation',
+      title: 'Global Expansion',
       description:
-        'Enable businesses to achieve digital maturity through comprehensive technology solutions and strategies.',
+        'Expand our services globally, establishing partnerships in key markets to deliver innovative solutions worldwide.',
     },
     {
-      title: 'Industry Solutions',
+      title: 'Sustainable Technology',
       description:
-        'Develop specialized solutions for key industries, addressing unique challenges and opportunities.',
+        'Develop technologies that promote sustainability, using AI to optimize resource usage and reduce environmental impact.',
     },
     {
-      title: 'Global Impact',
+      title: 'Talent Development',
       description:
-        'Expand our global presence while maintaining excellence in service delivery and client satisfaction.',
+        'Build a world-class team of experts in emerging technologies, fostering a culture of continuous learning and innovation.',
     },
   ];
 });
 
-app.controller('TeamController', function ($scope) {
-  $scope.leadership = [
-    {
-      name: 'John Anderson',
-      role: 'Chief Executive Officer',
-      description: 'Former VP of Technology at Fortune 500, 20+ years in enterprise solutions.',
-    },
+app.controller('ContactController', function ($scope) {
+  $scope.submitForm = function () {
+    // Form submission logic would go here
+    // For now, just log the form data
+    console.log('Form submitted');
+  };
+});
+
+app.controller('AboutController', function ($scope) {
+  $scope.team = [
     {
       name: 'Sarah Chen',
-      role: 'Chief Technology Officer',
-      description: 'PhD in Computer Science, led major digital transformation projects.',
+      position: 'Chief Executive Officer',
+      bio: 'With over 20 years of experience in technology leadership, Sarah drives our vision for innovation and growth.',
     },
     {
-      name: 'Michael Roberts',
-      role: 'Head of AI Solutions',
-      description: 'Expert in machine learning and AI implementation for enterprise.',
+      name: 'Michael Rodriguez',
+      position: 'Chief Technology Officer',
+      bio: 'A pioneer in AI and cloud computing, Michael leads our technical strategy and innovation initiatives.',
     },
     {
-      name: 'Lisa Kumar',
-      role: 'Director of Client Success',
-      description: 'Specialized in enterprise client relationships and solution delivery.',
+      name: 'Dr. Emily Thompson',
+      position: 'Head of AI Research',
+      bio: 'Leading our AI research team, Emily focuses on developing cutting-edge machine learning solutions.',
     },
   ];
+});
+
+// Add animations
+app.animation('.fade-in', function () {
+  return {
+    enter: function (element, done) {
+      element.css('opacity', 0);
+      jQuery(element).animate(
+        {
+          opacity: 1,
+        },
+        1000,
+        done,
+      );
+    },
+  };
 });
