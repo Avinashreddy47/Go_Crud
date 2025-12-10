@@ -1,4 +1,3 @@
-// This is a comment to trigger a change
-module github.com/avinashreddysallagonda/Go_Crud
+module go-crud
 
-go 1.22
+go 1.22.4
